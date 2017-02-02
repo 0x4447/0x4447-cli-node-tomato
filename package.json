@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "body-parser": "1.15.1",
-    "express": "4.13.4",
+    "express": "4.14.0",
     "hjs": "0.0.6",
     "morgan": "1.7.0"
   },
