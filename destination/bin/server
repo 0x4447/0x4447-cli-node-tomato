@@ -35,7 +35,7 @@ if(cluster.isMaster) {
     //
     //	1.	Count the machine's CPUs.
     //
-    let cpuCount = require('os').cpus().length;
+    let cpuCount = 2;
 
 	//
 	// 	2.	When on the production server
@@ -116,7 +116,8 @@ else
 //
 function onError(error)
 {
-	if(error.syscall !== 'listen') {
+	if(error.syscall !== 'listen')
+	{
 		throw error;
 	}
 
