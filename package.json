@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/davidgatti/express-generator-dg"
   },
+  "bin": {
+    "express-generator-dg": "./index.js"
+  },
   "keywords": [
     "express",
     "generator",
