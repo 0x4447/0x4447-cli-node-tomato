@@ -3,8 +3,6 @@
 let fs = require('fs');
 let path = require('path');
 
-let source = "source";
-
 //
 //
 //
@@ -37,99 +35,92 @@ if(!destination)
 }
 
 //
+//	Add the folder in the mix
 //
+destination_path.push("source");
+
 //
-destination_path.push(destination)
+//	Rebuild the path to the source
+//
+let source = destination_path.join("/");
 
 //
 //
 //
-let destination_path_string = destination_path.join("/")
+let target = process.cwd() + "/" + destination
 
 
 //
+//	Start copying
 //
-//
-copy_folder(source, destination_path_string);
+copy_folder(source, target);
 
 //
-//
+//	Function to traverse a folder structure
 //
 function copy_folder(source, target) {
 
 	//
-	//
+	//	Create an array which will hold all the file name
 	//
 	let files = [];
 
 	//
-	//
-	//
-	let ble = source.split("/")
-
-	//
-	//
-	//
-	let me = "/";
-
-	//
-	//
-	//
-	if(ble[1])
-	{
-		me = ble[1]
-	}
-
-	//
 	//	check if folder needs to be created or integrated
 	//
-	let targetFolder = path.join(target, path.basename(me));
+	let targetFolder = target
 
 	//
-	//
+	//	Check if the target folder exists or not
 	//
 	if(!fs.existsSync(targetFolder))
 	{
 		//
-		//
+		//	Create the target folder
 		//
 		fs.mkdirSync(targetFolder);
 	}
 
 	//
-	//
+	//	Check if the source is a folder or not
 	//
 	if(fs.lstatSync(source).isDirectory())
 	{
 		//
-		//
+		//	Read all the file inside the source folder and save them in to
+		//	the array that we created above
 		//
 		files = fs.readdirSync(source);
 
 		//
-		//
+		//	Loop over the array and check each element
 		//
 		files.forEach(function(file) {
 
 			//
+			//	Create a full source path so we know where to copy from
 			//
-			//
-			let curSource = path.join( source, file );
+			let curSource = path.join(source, file);
 
 			//
-			//
+			//	Check if the source path is a folder or not
 			//
 			if(fs.lstatSync(curSource).isDirectory())
 			{
-				//
-				//
-				//
-				copy_folder(curSource, targetFolder);
+				let arr = curSource.split('/');
+				let name = arr.pop();
 
-			} else
+				//
+				//	If we are dealing with a folder then run this function
+				//	recursively
+				//
+				copy_folder(curSource, targetFolder + "/" + name);
+
+			}
+			else
 			{
 				//
-				//
+				//	If the source is a file, lets just copy it
 				//
 				copy_file(curSource, targetFolder);
 			}
@@ -141,12 +132,12 @@ function copy_folder(source, target) {
 function copy_file(source, target) {
 
 	//
-	//
+	//	Copy the target file name
 	//
     let targetFile = target;
 
     //
-    //	if target is a directory a new file with the same name will be created
+    //	Check if target file exists
     //
     if(fs.existsSync(target))
     {
@@ -163,7 +154,7 @@ function copy_file(source, target) {
     }
 
     //
-    //
+    //	Copy source file to the target
     //
     fs.writeFileSync(targetFile, fs.readFileSync(source));
 }

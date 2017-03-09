@@ -1,0 +1,25 @@
+{
+	"name": "express-generator-dg",
+	"version": "1.0.0",
+	"description": "A custom ExpressJS Generator",
+	"main": "./index",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/davidgatti/express-generator-dg"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"express",
+		"generator",
+		"david gatti",
+		"template"
+	],
+	"author": {
+		"name": "David Gatti",
+		"email": "npm@gatti.pl",
+		"url": "https://github.com/davidgatti"
+	},
+	"license": "MIT"
+}
