@@ -12,6 +12,24 @@ Over the years I think I found out a nice default template that I can use to sta
 - By default I use Hogan
 - End everything is organized how I like it :)
 
+# Installation
+
+```
+$ npm install express-generator-dg -g
+```
+
+# How to use
+
+Once you have this npm package installed globally, you can use it anywhere. Go to a folder where you would like to create a new project and:
+
+```
+$ express-generator-dg NAME_OF_THE_FOLDER
+```
+
+# WARNING
+
+This tool will override, destroy, kill and crash everything in its path - you've been warned ;)
+
 # The End
 
 If you've enjoyed this article/project, please consider giving it a 🌟. Also check out my [GitHub account] (https://github.com/davidgatti), where I have other articles and apps that you might find interesting.
