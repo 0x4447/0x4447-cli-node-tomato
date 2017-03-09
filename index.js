@@ -35,14 +35,9 @@ if(!destination)
 }
 
 //
-//	Add the folder in the mix
-//
-destination_path.push("source");
-
-//
 //	Rebuild the path to the source
 //
-let source = destination_path.join("/");
+let source = "/usr/local/lib/node_modules/express-generator-dg/source"
 
 //
 //
