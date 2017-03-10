@@ -26,6 +26,24 @@ Once you have this npm package installed globally, you can use it anywhere. Go t
 $ express-generator-dg NAME_OF_THE_FOLDER
 ```
 
+Then you'll have to go in to the directory you just created and type:
+
+```
+$ npm install
+```
+
+Then you'll need to create a `.env` file to load your environment variables in to memory thanks to `foreman`, or you can also just install [env-auto](https://www.npmjs.com/package/env-auto) and then type:
+
+```
+$ env-auto
+```
+
+To get the `.env` file automatically created from the `app.json` file. last thing will be to start the whole thing with:
+
+```
+$ npm start
+```
+
 # WARNING
 
 This tool will override, destroy, kill and crash everything in its path - you've been warned ;)
