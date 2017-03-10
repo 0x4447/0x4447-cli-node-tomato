@@ -38,7 +38,7 @@ Then you'll need to create a `.env` file to load your environment variables in t
 $ env-auto
 ```
 
-To get the `.env` file automatically created from the `app.json` file. last thing will be to start the whole thing with:
+To get the `.env` file automatically created from the `app.json` file. Last thing would be to start the whole thing with:
 
 ```
 $ npm start
