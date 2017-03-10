@@ -1,9 +1,49 @@
+//  __  __    ____    _____    _    _   _        ______    _____
+// |  \/  |  / __ \  |  __ \  | |  | | | |      |  ____|  / ____|
+// | \  / | | |  | | | |  | | | |  | | | |      | |__    | (___
+// | |\/| | | |  | | | |  | | | |  | | | |      |  __|    \___ \
+// | |  | | | |__| | | |__| | | |__| | | |____  | |____   ____) |
+// |_|  |_|  \____/  |_____/   \____/  |______| |______| |_____/
+//
+
+//
+//	Module for working with file and directory paths
+//
 let path = require('path');
+
+//
+//	HTTP request logger middleware for NodeJS
+//
 let logger = require('morgan');
+
+//
+//	Fast, unopinionated, minimalist web framework
+//
 let express = require('express');
+
+//
+//	Parse incoming request bodies in a middleware before your handlers,
+//	available under the req.body property.
+//
 let bodyParser = require('body-parser');
 
+//
+//	Save the express framework in a simple variable
+//
 let app = express();
+
+//   _____   ______   _______   _______   _____   _   _    _____    _____
+//  / ____| |  ____| |__   __| |__   __| |_   _| | \ | |  / ____|  / ____|
+// | (___   | |__       | |       | |      | |   |  \| | | |  __  | (___
+//  \___ \  |  __|      | |       | |      | |   | . ` | | | |_ |  \___ \
+//  ____) | | |____     | |       | |     _| |_  | |\  | | |__| |  ____) |
+// |_____/  |______|    |_|       |_|    |_____| |_| \_|  \_____| |_____/
+//
+
+//
+//	Force HTTPS before the client can access anything
+//
+app.use(force_https);
 
 //
 //	Tell NodeJS where to look for views
@@ -19,11 +59,6 @@ app.set('view engine', 'hjs');
 //	Remove the information about what type of framework is the site running on
 //
 app.disable('x-powered-by');
-
-//
-//	Force HTTPS before the client can access anything
-//
-app.use(force_https);
 
 //
 //	Expose the public folder to the world
@@ -45,11 +80,23 @@ app.use(bodyParser.json());
 //
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//////////////////////////////////////////////////////////////////////////////
+//  _____     ____    _    _   _______   ______    _____
+// |  __ \   / __ \  | |  | | |__   __| |  ____|  / ____|
+// | |__) | | |  | | | |  | |    | |    | |__    | (___
+// |  _  /  | |  | | | |  | |    | |    |  __|    \___ \
+// | | \ \  | |__| | | |__| |    | |    | |____   ____) |
+// |_|  \_\  \____/   \____/     |_|    |______| |_____/
+//
 
 app.use('/', require('./routes/index'));
 
-//////////////////////////////////////////////////////////////////////////////
+//  ______   _____    _____     ____    _____     _____
+// |  ____| |  __ \  |  __ \   / __ \  |  __ \   / ____|
+// | |__    | |__) | | |__) | | |  | | | |__) | | (___
+// |  __|   |  _  /  |  _  /  | |  | | |  _  /   \___ \
+// | |____  | | \ \  | | \ \  | |__| | | | \ \   ____) |
+// |______| |_|  \_\ |_|  \_\  \____/  |_|  \_\ |_____/
+//
 
 //
 //
@@ -108,16 +155,16 @@ app.use(function(err, req, res, next) {
 
 });
 
-//   _    _ ______ _      _____  ______ _____   _____
-//  | |  | |  ____| |    |  __ \|  ____|  __ \ / ____|
-//  | |__| | |__  | |    | |__) | |__  | |__) | (___
-//  |  __  |  __| | |    |  ___/|  __| |  _  / \___ \
-//  | |  | | |____| |____| |    | |____| | \ \ ____) |
-//  |_|  |_|______|______|_|    |______|_|  \_\_____/
+//  _    _   ______   _        _____    ______   _____     _____
+// | |  | | |  ____| | |      |  __ \  |  ____| |  __ \   / ____|
+// | |__| | | |__    | |      | |__) | | |__    | |__) | | (___
+// |  __  | |  __|   | |      |  ___/  |  __|   |  _  /   \___ \
+// | |  | | | |____  | |____  | |      | |____  | | \ \   ____) |
+// |_|  |_| |______| |______| |_|      |______| |_|  \_\ |_____/
 //
 
 //
-//	Check if the connection is secure, if not, redirect to a secure one.
+//	No more excuses, just force HTTPS no matter what.
 //
 function force_https(req, res, next)
 {

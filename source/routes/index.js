@@ -7,8 +7,12 @@ router.get('/', function(req, res, next) {
 	//
 	//	->	Render the HTML page
 	//
-	res.render("index", {
-		title: "Title"
+	res.render("_frame", {
+		title: "Home",
+		description: "Home Page",
+		partials: {
+			body: 'index'
+		}
 	});
 
 });

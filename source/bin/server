@@ -32,13 +32,16 @@ app.set('port', port);
 //
 if(cluster.isMaster) {
 
-    //
-    //	1.	Count the machine's CPUs.
-    //
-    let cpuCount = 2;
+	//
+	//	1.	When not in production by default we spin two workers no mater
+	//		the CPU/Core count.
+	//
+	let cpu_count = 2;
 
 	//
-	// 	2.	When on the production server
+	// 	2.	When on the production server we decide how many workers do we
+	// 		want based on how much memory we have in the system and how much
+	// 		memory each worker takes.
 	//
 	if(process.env.NODE_ENV === 'production') {
 
@@ -49,31 +52,31 @@ if(cluster.isMaster) {
 		let memory = (process.env.MEMORY_AVAILABLE * 1e6);
 
 		//
-		//	2. Get used memory on the system
+		//	2. 	Get used memory on the system by one worker and we pretend
+		//		the worker takes double the space so we end up using only 50%
+		//		of the available memory to have enough room for growth if
+		//		needed.
 		//
 		let memory_used = (process.memoryUsage().rss * 2);
 
 		//
-		//	3.	calculate how many workers can we start to use ale the
-		//		available power of the server.
+		//	3.	Calculate how many workers we should spawn -1 for good measure.
 		//
-		//		-1 for good measure
-		//
-		cpuCount = (memory / memory_used).toFixed() - 1;
+		cpu_count = (memory / memory_used).toFixed() - 1;
 	}
 
-    //
-    //	3.	Create a worker for each CPU core.
-    //
-    while(cpuCount--)
-    {
-        cluster.fork();
-    }
+	//
+	//	3.	Create all the necessary workers
+	//
+	while(cpu_count--)
+	{
+		cluster.fork();
+	}
 
-    //
-    //	4.	Listen for when the process exits because of a crash, and spawn
-    //		a new process in it place.
-    //
+	//
+	//	4.	Listen for when the process exits, and spawn a new worker in it
+	//		place. This way we never run out of workers.
+	//
 	cluster.on('exit', function (worker) {
 
 		//
@@ -96,7 +99,7 @@ else
 	let server = http.createServer(app);
 
 	//
-	//	2.	Listen on provided port, on all network interfaces.
+	//	2.	Listen for connection on specified port
 	//
 	server.listen(port);
 
@@ -116,13 +119,16 @@ else
 //
 function onError(error)
 {
+	//
+	//	1.	Not quite sure what this is
+	//
 	if(error.syscall !== 'listen')
 	{
 		throw error;
 	}
 
 	//
-	//	handle specific listen errors with friendly messages
+	//	2.	handle specific errors with friendly messages
 	//
 	switch(error.code)
 	{
@@ -130,10 +136,12 @@ function onError(error)
 			console.error("Port %d requires elevated privileges", port);
 			process.exit(1);
 			break;
+
 		case 'EADDRINUSE':
 			console.error("Port %d is already in use", port);
 			process.exit(1);
 			break;
+
 		default:
 			throw error;
 	}
@@ -142,8 +150,8 @@ function onError(error)
 //
 //	Event listener for HTTP server "listening" event.
 //
-function onListening() {
-
+function onListening()
+{
 	//
 	//	-> display in the console where to look for the server
 	//
