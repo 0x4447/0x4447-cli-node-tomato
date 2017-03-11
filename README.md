@@ -11,6 +11,7 @@ Over the years I think I found out a nice default template that I can use to sta
 - Redesigned how errors are handled
 - By default I use Hogan
 - Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
+- Basic Open Graph support
 - End everything is organized how I like it :)
 
 # Installation
