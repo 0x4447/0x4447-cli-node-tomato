@@ -1,15 +1,16 @@
 # DG Express Generator
 
-Over the years I think I found out a nice default template that I can use to start new ExpressJS project.
+Over the years I think I found out a nice default template that I can use to start a new ExpressJS project.
 
 # Key Features
 
 - My personal commenting style that I like and allows me to better understand the code.
-- Simplified the `server` file in the `bin` folder
+- Simplified and explained the `server` file in the `bin` folder
 - By default I use clustering
-- By default I force HTTPS when in production
-- Redesigned how I handle Errors
+- By default I force HTTPS when code is deployed
+- Redesigned how errors are handled
 - By default I use Hogan
+- Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
 - End everything is organized how I like it :)
 
 # Installation
@@ -47,6 +48,10 @@ $ npm start
 # WARNING
 
 This tool will override, destroy, kill and crash everything in its path - you've been warned ;)
+
+# Fork It
+
+This project was designed to allow you to make it your own - thanks to it simplicity. Once forked you just have to change the content of the `source` folder, and you have your own easy to use template up and running when you need it.
 
 # The End
 

@@ -126,13 +126,12 @@ app.use(function(err, req, res, next) {
 	};
 
 	//
-	//	2.	Check if the environment is development, and if it is we
-	//		will display the stack-trace
+	//	2.	Hide the stack trace when in production
 	//
-	if(process.env.NODE_ENV == 'development')
+	if(process.env.NODE_ENV != 'production')
 	{
 		//
-		//	1.	Set the variable to show the stack-trace to the developer
+		//	1.	Add the whole error to the message
 		//
 		obj_message.error = err;
 
@@ -171,7 +170,7 @@ function force_https(req, res, next)
 	//
 	//	1. 	Redirect only in the production environment
 	//
-	if(process.env.NODE_ENV == 'production')
+	if(process.env.NODE_ENV != 'local')
 	{
 		//
 		//	1. 	Check what protocol are we using
