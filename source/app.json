@@ -5,7 +5,8 @@
 	"success_url": "/",
 	"env": {
 		"NODE_ENV": {
-			"description": "The environment can be: production, staging or development"
+			"description": "The environment can be: production, staging or development",
+			"value": "local"
 		},
 		"NPM_CONFIG_PRODUCTION": {
 			"description": "By default Heroku sets this to true, if you are deploying a dev version of the code, set this false.",
@@ -14,6 +15,10 @@
 		"BASE_URL": {
 			"description": "The URL of the project",
 			"value": "https://NAME_OF_THE_SERVER.herokuapp.com"
+		},
+		"DATABASE_URL": {
+			"description": "The URI to the DB",
+			"value": "postgres://USER_NAME:PASSWORD@example.com:5432/DB_NAME"
 		}
 	}
 }

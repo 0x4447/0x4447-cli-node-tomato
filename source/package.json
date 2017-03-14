@@ -6,12 +6,17 @@
     "node": "6.9.1"
   },
   "scripts": {
-    "start": "nf start"
+    "start": "nf start",
+    "knex": "./node_modules/.bin/knex",
+    "seed": "./node_modules/.bin/knex seed:run",
+    "postinstall": "./node_modules/.bin/knex migrate:latest",
   },
   "dependencies": {
     "body-parser": "1.15.1",
     "express": "4.14.0",
     "hjs": "0.0.6",
+    "pg": "6.1.0",
+    "knex": "0.12.6",
     "morgan": "1.7.0"
   },
   "devDependencies": {
