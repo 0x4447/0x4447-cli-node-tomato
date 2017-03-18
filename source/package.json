@@ -9,7 +9,7 @@
     "start": "nf start",
     "knex": "./node_modules/.bin/knex",
     "seed": "./node_modules/.bin/knex seed:run",
-    "postinstall": "./node_modules/.bin/knex migrate:latest",
+    "postinstall": "./node_modules/.bin/knex migrate:latest"
   },
   "dependencies": {
     "body-parser": "1.15.1",
