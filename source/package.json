@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "6.9.1"
+    "node": "6.10.0"
   },
   "scripts": {
     "start": "nf start",
@@ -16,6 +16,7 @@
     "express": "4.14.0",
     "hjs": "0.0.6",
     "pg": "6.1.0",
+    "raven": "0.12.3",
     "knex": "0.12.6",
     "morgan": "1.7.0"
   },

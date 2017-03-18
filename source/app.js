@@ -28,6 +28,11 @@ let express = require('express');
 let bodyParser = require('body-parser');
 
 //
+//	The main Centry module to collect crash reports
+//
+let raven = require('raven');
+
+//
 //	Save the express framework in a simple variable
 //
 let app = express();
@@ -39,6 +44,42 @@ let app = express();
 //  ____) | | |____     | |       | |     _| |_  | |\  | | |__| |  ____) |
 // |_____/  |______|    |_|       |_|    |_____| |_| \_|  \_____| |_____/
 //
+
+//
+//	Load the content of the package.json so we can extract some useful
+//	information about the project.
+//
+let npm = require('./package.json');
+
+//
+//	Log errors to Sentry only when in production.
+//
+//	PRO-TIP: 	use the .dataCallback() method to filter out potential
+//				unwanted errors.
+//
+//	- 	Send the version of the project so we can track which version
+//		caused any problems.
+//
+let client = new raven.Client(process.env.DSN, {
+	release: npm.version,
+	dataCallback: function(data) {
+
+		//
+		//	Only log when in production
+		//
+		if(process.env.NODE_ENV != "production")
+		{
+			data = false;
+		}
+
+		return data;
+	}
+});
+
+//
+//	Set Sentry to start listening to requests
+//
+app.use(raven.middleware.express.requestHandler(client));
 
 //
 //	Force HTTPS before the client can access anything
@@ -97,6 +138,11 @@ app.use('/', require('./routes/index'));
 // | |____  | | \ \  | | \ \  | |__| | | | \ \   ____) |
 // |______| |_|  \_\ |_|  \_\  \____/  |_|  \_\ |_____/
 //
+
+//
+//	Set Sentry to catch all the potential error
+//
+app.use(raven.middleware.express.errorHandler(client));
 
 //
 //
