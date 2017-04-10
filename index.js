@@ -44,7 +44,7 @@ let source = "/usr/local/lib/node_modules/express-generator-dg/source";
 //
 //	6.	Change the source depending on the system
 //
-if(os.platform() == linux)
+if(os.platform() == 'linux')
 {
 	source = "/usr/lib/node_modules/express-generator-dg/source";
 }
