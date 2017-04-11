@@ -1,26 +1,27 @@
 # DG Express Generator
 
-Over the years I think I found out a nice default template that I can use to start a new ExpressJS project.
+I decided to make my own `express-generator` because I always spend quite some time to bring the default template up to speed, by changing things that I didn't like etc. With `express-generator-dg` I decided to share with the world how I like a NodeJS project to look. Some might like it other will hate it. But if you don't like what you see, you can easily clone this repo, and by changing he content of the `source` folder, you'll have your own `express-generator`
 
 # Key Features
 
-- My personal commenting style that I like and allows me to better understand the code.
-- Simplified and explained the `server` file in the `bin` folder
+- My personal commenting style that I like
+- Simplified and explained the `server` file so from the start you know what each line dose
 - By default I use clustering
-- By default I force HTTPS when code is deployed
-- Redesigned how errors are handled
-- By default I use Hogan
+- By default I force HTTPS in production - no excuses
+- Redesigned how errors are handled and displayed
+- By default I use Hogan for the templating - nice and simple
 - Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
 - Basic Open Graph support
+- Sentry Support by default set it to report crashes only in production
+- By default I use Knex to talk with the database
+- Code that starts the server is in `workers` folder since it is a worker, and since I always end up with more the the server I have everything in place
 - End everything is organized how I like it :)
 
-# Installation
+# The whole flow to have the project up and running
 
 ```
 $ npm install express-generator-dg -g
 ```
-
-# How to use
 
 Once you have this npm package installed globally, you can use it anywhere. Go to a folder where you would like to create a new project and:
 
@@ -34,13 +35,19 @@ Then you'll have to go in to the directory you just created and type:
 $ npm install
 ```
 
-Then you'll need to create a `.env` file to load your environment variables in to memory thanks to `foreman`, or you can also just install [env-auto](https://www.npmjs.com/package/env-auto) and then type:
+Then you'll need to create a `.env` file to load your environment variables in to memory thanks to `foreman`, or you can also just install
+
+```
+$ npm install env-auto -g
+```
+
+and then type in the root folder of your project to get the `.env` file automatically created from the `app.json` file.
 
 ```
 $ env-auto
 ```
 
-To get the `.env` file automatically created from the `app.json` file. Last thing would be to start the whole thing with:
+Last thing would be to start the whole thing with:
 
 ```
 $ npm start

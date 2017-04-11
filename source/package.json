@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "6.10.0"
+    "node": "6.10.2"
   },
   "scripts": {
     "start": "nf start",
@@ -12,13 +12,13 @@
     "postinstall": "./node_modules/.bin/knex migrate:latest"
   },
   "dependencies": {
-    "body-parser": "1.15.1",
-    "express": "4.14.0",
+    "body-parser": "1.17.1",
+    "express": "4.15.2",
     "hjs": "0.0.6",
-    "pg": "6.1.0",
-    "raven": "0.12.3",
-    "knex": "0.12.6",
-    "morgan": "1.7.0"
+    "pg": "6.1.5",
+    "raven": "1.2.1",
+    "knex": "0.12.9",
+    "morgan": "1.8.1"
   },
   "devDependencies": {
     "nodemon": "1.11.0",

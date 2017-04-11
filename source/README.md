@@ -1,1 +1,3 @@
-# Project name
+# Project Name
+
+Tell something about this project

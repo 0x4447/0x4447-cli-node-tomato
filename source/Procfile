@@ -1,1 +1,1 @@
-web: bin/pre_server
+web: bin/server

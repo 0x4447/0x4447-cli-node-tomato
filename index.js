@@ -38,7 +38,7 @@ if(!destination)
 
 //
 //	5.	Rebuild the path to the source
-//
+// https://docs.npmjs.com/files/folders
 let source = "/usr/local/lib/node_modules/express-generator-dg/source";
 
 //
