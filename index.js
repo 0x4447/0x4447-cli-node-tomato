@@ -6,17 +6,17 @@ let ncp = require('ncp').ncp;
 let os = require('os');
 
 //
-//	1.	Get where the files should be copied
+//	1.	Get the full path of the app being executed
 //
-let destination_path = process.argv[1].split('/');
+let app_path = process.argv[1].split('/');
 
 //
 //	2. Extract the name of the app/file name.
 //
-let appName = destination_path.pop();
+let app_name = app_path.pop();
 
 //
-//	3. Save the first provided argument as the token.
+//	3. The first provided argument by the user is the destination
 //
 const destination = process.argv[2];
 
@@ -28,7 +28,7 @@ if(!destination)
 	//
 	//	1. Give the user an example how to use the app.
 	//
-	console.log("Missing argument! \n\n\tExample: ./%s \"THE_PAYLOAD\" YOUR_TOKEN\n", appName);
+	console.log("Missing argument! \n\n\tExample: ./%s \"DESTINATION\" \n", app_name);
 
 	//
 	//	-> Exit the app if error.
@@ -64,6 +64,6 @@ ncp(source, target, function (err) {
 		return console.error(err);
 	}
 
-	console.log('done!');
+	console.log('Done!');
 });
 
