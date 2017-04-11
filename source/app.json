@@ -19,6 +19,10 @@
 		"DATABASE_URL": {
 			"description": "The URI to the DB",
 			"value": "postgres://USER_NAME:PASSWORD@example.com:5432/DB_NAME"
+		},
+		"PORT": {
+			"description": "Set the port for development. Will be overwritten by Heroku for example",
+			"value": "3000"
 		}
 	}
 }
