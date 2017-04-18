@@ -10,7 +10,8 @@ router.get('/', function(req, res, next) {
 	res.render("_frame", {
 		title: "Home",
 		description: "Home Page",
-		og_image: "images/og.jpg",
+		og_image: "https://" + req.hostname + "/images/og/index.png",
+		url: "https://" + req.hostname,
 		partials: {
 			body: 'index'
 		}
