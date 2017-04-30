@@ -87,6 +87,41 @@ app.use(raven.middleware.express.requestHandler(client));
 app.use(force_https);
 
 //
+//	Strict-Transport-Security
+//
+//	Tell the browser, that the next time it connects to the site, it should
+//	connect immediately over HTTPS
+//
+app.use(helmet.hsts({
+	maxAge: 15638400,
+	includeSubDomains: true,
+	force: true
+}));
+
+//
+//	Make sure the cached data is always validated with the server before
+//	it get used.
+//
+app.use(helmet.noCache());
+
+//
+//	Set the custom headers.
+//
+app.use(helmet.contentSecurityPolicy({
+	directives: {
+		defaultSrc: ["'none'"],
+		connectSrc: ["'self'"],
+		fontSrc: ["'self'"],
+		frameSrc: ["'self'"],
+		imgSrc: ["'self'", "data:"],
+		mediaSrc: ["'none'"],
+		objectSrc: ["'none'"],
+		scriptSrc: ["'self'", "'unsafe-inline'"],
+		styleSrc: ["'self'", "'unsafe-inline'"]
+	}
+}));
+
+//
 //	Tell NodeJS where to look for views
 //
 app.set('views', path.join(__dirname, 'views'));

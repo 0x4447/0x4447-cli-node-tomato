@@ -18,7 +18,8 @@
     "pg": "6.1.5",
     "raven": "1.2.1",
     "knex": "0.12.9",
-    "morgan": "1.8.1"
+    "morgan": "1.8.1",
+    "helmet": "3.5.0"
   },
   "devDependencies": {
     "nodemon": "1.11.0",
