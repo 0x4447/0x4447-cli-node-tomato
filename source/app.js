@@ -33,6 +33,11 @@ let bodyParser = require('body-parser');
 let raven = require('raven');
 
 //
+//	Add basic security headers to each request.
+//
+let helmet = require('helmet');
+
+//
 //	Save the express framework in a simple variable
 //
 let app = express();
