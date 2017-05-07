@@ -208,20 +208,35 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
 
 	//
-	//	1.	Set the basic information about the error, that is going to be
+	//	1.	Use the status of the error itself or set a default one
+	//
+	let status = err.status || 500;
+
+	//
+	//	2.	If there was no status, and the default was set, we have to
+	//		add the status to the error object.
+	//
+	if(status === 500)
+	{
+		err.status = 500;
+	}
+
+	//
+	//	3.	Set the basic information about the error, that is going to be
 	//		displayed to user and developers regardless.
 	//
 	let obj_message = {
 		message: err.message
-	};
+	}
 
 	//
-	//	2.	Hide the stack trace when in production
+	//	4.	Check if the environment is development, and if it is we
+	//		will display the stack-trace
 	//
 	if(process.env.NODE_ENV != 'production')
 	{
 		//
-		//	1.	Add the whole error to the message
+		//	1.	Set the variable to show the stack-trace to the developer
 		//
 		obj_message.error = err;
 
@@ -232,13 +247,12 @@ app.use(function(err, req, res, next) {
 	}
 
 	//
-	//	3.	Display a default status error, or pass the one from
-	//		the error message
+	//	5.	Set the status response as the one from the error message
 	//
-	res.status(err.status || 500);
+	res.status(status);
 
 	//
-	//	->	Show the error as JSON
+	//	->	Show the error
 	//
 	res.json(obj_message);
 
