@@ -84,7 +84,7 @@ let client = new raven.Client(process.env.DSN, {
 //
 //	Set Sentry to start listening to requests
 //
-app.use(raven.middleware.express.requestHandler(client));
+app.use(raven.requestHandler(client));
 
 //
 //	Force HTTPS before the client can access anything
