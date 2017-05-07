@@ -272,12 +272,12 @@ app.use(function(err, req, res, next) {
 function force_https(req, res, next)
 {
 	//
-	//	1. 	Redirect only in the production environment
+	//	1. 	Skip redirection only when on local machine
 	//
 	if(process.env.NODE_ENV != 'local')
 	{
 		//
-		//	1. 	Check what protocol are we using
+		//	1. 	Check what protocol are we using when behind a reverse proxy
 		//
 		if(req.headers['x-forwarded-proto'] !== 'https')
 		{
@@ -285,7 +285,7 @@ function force_https(req, res, next)
 			//	-> 	Redirect the user to the same URL that he requested, but
 			//		with HTTPS instead of HTTP
 			//
-			return res.redirect('https://' + req.get('host') + req.url);
+			return res.redirect('https://' + req.hostname + req.url);
 		}
 	}
 
