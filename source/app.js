@@ -186,7 +186,7 @@ app.use('/', require('./routes/index'));
 //
 //	Set Sentry to catch all the potential error
 //
-app.use(raven.middleware.express.errorHandler(client));
+app.use(raven.errorHandler(client));
 
 //
 //
