@@ -8,8 +8,7 @@
   "scripts": {
     "start": "nf start",
     "knex": "./node_modules/.bin/knex",
-    "seed": "./node_modules/.bin/knex seed:run",
-    "postinstall": "./node_modules/.bin/knex migrate:latest"
+    "seed": "npm run knex seed:run"
   },
   "dependencies": {
     "body-parser": "1.17.1",
