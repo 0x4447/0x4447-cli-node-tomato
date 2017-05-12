@@ -1,6 +1,6 @@
 # DG Express Generator
 
-I decided to make my own `express-generator` because I always spend quite some time to bring the default template up to speed, by changing things that I didn't like etc. With `express-generator-dg` I decided to share with the world how I like a NodeJS project to look. Some might like it other will hate it. But if you don't like what you see, you can easily clone this repo, and by changing he content of the `source` folder, you'll have your own `express-generator`
+I decided to make my own `express-generator` because I always spend quite some time to bring the default ExpressJS template up to speed, by changing things that I didn't like etc. With `express-generator-dg` I decided to share with the world how I like a NodeJS project to look. Some might like it, other will hate it. But if you don't like what you see, you can easily clone this repo, and by changing the content of the `source` folder, you'll have your own `express-generator`
 
 # Key Features
 
@@ -12,6 +12,7 @@ I decided to make my own `express-generator` because I always spend quite some t
 - By default I use Hogan for the templating - nice and simple
 - Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
 - Basic Open Graph support
+- Twitter Cards support
 - Sentry Support by default set it to report crashes only in production
 - By default I use Knex to talk with the database
 - Code that starts the server is in `workers` folder since it is a worker, and since I always end up with more the the server I have everything in place
