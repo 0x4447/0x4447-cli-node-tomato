@@ -1,6 +1,6 @@
 {
   "name": "express-generator-dg",
-  "version": "1.12.2",
+  "version": "1.12.3",
   "description": "A custom ExpressJS Generator",
   "main": "./index",
   "repository": {
