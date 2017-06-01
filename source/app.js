@@ -38,6 +38,11 @@ let raven = require('raven');
 let helmet = require('helmet');
 
 //
+//	Compress the response to reduce page size
+//
+let compression = require('compression')
+
+//
 //	Save the express framework in a simple variable
 //
 let app = express();
@@ -85,6 +90,11 @@ let client = new raven.Client(process.env.DSN, {
 //	Set Sentry to start listening to requests
 //
 app.use(raven.requestHandler(client));
+
+//
+//	Compress the response
+//
+app.use(compression());
 
 //
 //	Force HTTPS before the client can access anything
