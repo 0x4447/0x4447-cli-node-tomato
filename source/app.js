@@ -70,7 +70,7 @@ let npm = require('./package.json');
 //	- 	Send the version of the project so we can track which version
 //		caused any problems.
 //
-let client = new raven.Client(process.env.DSN, {
+raven.config(process.env.SENTRY_API_KEY, {
 	release: npm.version,
 	dataCallback: function(data) {
 
@@ -84,12 +84,12 @@ let client = new raven.Client(process.env.DSN, {
 
 		return data;
 	}
-});
+}).install();
 
 //
 //	Set Sentry to start listening to requests
 //
-app.use(raven.requestHandler(client));
+app.use(raven.requestHandler());
 
 //
 //	Compress the response
@@ -196,7 +196,7 @@ app.use('/', require('./routes/index'));
 //
 //	Set Sentry to catch all the potential error
 //
-app.use(raven.errorHandler(client));
+app.use(raven.errorHandler());
 
 //
 //
