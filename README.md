@@ -1,6 +1,6 @@
 # DG Express Generator
 
-I decided to make my own [express-generator](https://expressjs.com/en/starter/generator.html) because I always spend quite some time brining the default ExpressJS template up to speed, by changing things that I didn't like etc. After making `express-generator-dg` for myself I decided to share it with the world how because maybe other will like how I organize my projects.
+I decided to make my own [express-generator](https://expressjs.com/en/starter/generator.html) because I always spend quite some time brining the default ExpressJS template up to speed, by changing things that I didn't like etc. After making `express-generator-dg` for myself I decided to share it with the world.
 
 But if you don't like what you see, you can easily clone this repo, and by changing the content of the `source` folder, you'll have your own `express-generator`.
 
