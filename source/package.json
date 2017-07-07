@@ -19,6 +19,7 @@
     "compression": "1.6.2",
     "knex": "0.12.9",
     "morgan": "1.8.1",
+    "cookie-parser": "1.4.3",
     "helmet": "3.5.0"
   },
   "devDependencies": {
