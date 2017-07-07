@@ -84,7 +84,7 @@ raven.config(process.env.SENTRY_API_KEY, {
 //	be assigned to the req.secret variable, middlewares can use it to sign
 //	cookies or other things.
 //
-app.use(cookieParser());
+app.use(cookie_parser());
 
 //
 //	Set Sentry to start listening to requests
