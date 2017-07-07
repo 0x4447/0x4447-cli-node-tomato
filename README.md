@@ -4,6 +4,8 @@ I decided to make my own [express-generator](https://expressjs.com/en/starter/ge
 
 But if you don't like what you see, you can easily clone this repo, and by changing the content of the `source` folder, you'll have your own `express-generator`.
 
+So... buckle up, scroll down and enjoy :)
+
 # Key Features
 
 - My personal commenting style that I like

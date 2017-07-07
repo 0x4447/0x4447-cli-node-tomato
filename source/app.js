@@ -25,7 +25,7 @@ let express = require('express');
 //	Parse incoming request bodies in a middleware before your handlers,
 //	available under the req.body property.
 //
-let bodyParser = require('body-parser');
+let body_parser = require('body-parser');
 
 //
 //	The main Centry module to collect crash reports
@@ -40,7 +40,12 @@ let helmet = require('helmet');
 //
 //	Compress the response to reduce page size
 //
-let compression = require('compression')
+let compression = require('compression');
+
+//
+//	Parse the header for cookies
+//
+let cookie_parser = require('cookie-parser');
 
 //
 //	Save the express framework in a simple variable
@@ -71,20 +76,15 @@ let npm = require('./package.json');
 //		caused any problems.
 //
 raven.config(process.env.SENTRY_API_KEY, {
-	release: npm.version,
-	dataCallback: function(data) {
-
-		//
-		//	Only log when in production
-		//
-		if(process.env.NODE_ENV != "production")
-		{
-			data = false;
-		}
-
-		return data;
-	}
+	release: npm.version
 }).install();
+
+//
+//	Process Cookies from each requests. If a random string is provided it will
+//	be assigned to the req.secret variable, middlewares can use it to sign
+//	cookies or other things.
+//
+app.use(cookieParser());
 
 //
 //	Set Sentry to start listening to requests
@@ -92,14 +92,9 @@ raven.config(process.env.SENTRY_API_KEY, {
 app.use(raven.requestHandler());
 
 //
-//	Compress the response
+//	Compress the response with Gzip
 //
 app.use(compression());
-
-//
-//	Force HTTPS before the client can access anything
-//
-app.use(force_https);
 
 //
 //	Strict-Transport-Security
@@ -164,12 +159,12 @@ app.use(logger('dev'));
 //
 //	Parse all request as regular text, and not JSON objects
 //
-app.use(bodyParser.json());
+app.use(body_parser.json());
 
 //
 //	Parse application/x-www-form-urlencoded
 //
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(body_parser.urlencoded({ extended: false }));
 
 //  _____     ____    _    _   _______   ______    _____
 // |  __ \   / __ \  | |  | | |__   __| |  ____|  / ____|
@@ -181,7 +176,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 ////////////////////////////////////////////////////////////////////////////////
 
-app.use('/', require('./routes/index'));
+app.use(require('./routes/https'));
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -205,22 +200,32 @@ app.use(raven.errorHandler());
 //
 app.use(function(req, res, next) {
 
-	let err = new Error('Not Found');
-		err.status = 404;
+	//
+	//	1.	Create a visual message for a human
+	//
+	let error = new Error("Not Found");
 
-	next(err);
+	//
+	//	2.  The request is: Not Found.
+	//
+	error.status = 404;
+
+	//
+	//	->	Move to the next middelware
+	//
+	next(error);
 
 });
 
 //
 //  Display any error that occurred during the request.
 //
-app.use(function(err, req, res, next) {
+app.use(function(error, req, res, next) {
 
 	//
-	//	1.	Use the status of the error itself or set a default one
+	//	1.	Use the status of the error itself or set a default one.
 	//
-	let status = err.status || 500;
+	let status = error.status || 500;
 
 	//
 	//	2.	If there was no status, and the default was set, we have to
@@ -228,81 +233,48 @@ app.use(function(err, req, res, next) {
 	//
 	if(status === 500)
 	{
-		err.status = 500;
+		error.status = 500;
 	}
 
 	//
 	//	3.	Set the basic information about the error, that is going to be
-	//		displayed to user and developers regardless.
+	//		displayed to user and developers - regardless.
 	//
 	let obj_message = {
-		message: err.message
+		message: error.message
 	}
 
 	//
-	//	4.	Check if the environment is development, and if it is we
-	//		will display the stack-trace
+	//	4.	Don't log the error when in production
 	//
 	if(process.env.NODE_ENV != 'production')
 	{
 		//
 		//	1.	Set the variable to show the stack-trace to the developer
 		//
-		obj_message.error = err;
+		obj_message.error = error;
 
 		//
 		//	-> Show the error in the console
 		//
-		console.error(err);
+		console.error(error);
 	}
 
 	//
-	//	5.	Set the status response as the one from the error message
+	//	6.	Set the status response as the one from the error message
 	//
 	res.status(status);
 
 	//
-	//	->	Show the error
+	//	7.	Send the error
 	//
 	res.json(obj_message);
 
+	//
+	//	->	Stop the request
+	//
+	res.end();
+
 });
-
-//  _    _   ______   _        _____    ______   _____     _____
-// | |  | | |  ____| | |      |  __ \  |  ____| |  __ \   / ____|
-// | |__| | | |__    | |      | |__) | | |__    | |__) | | (___
-// |  __  | |  __|   | |      |  ___/  |  __|   |  _  /   \___ \
-// | |  | | | |____  | |____  | |      | |____  | | \ \   ____) |
-// |_|  |_| |______| |______| |_|      |______| |_|  \_\ |_____/
-//
-
-//
-//	No more excuses, just force HTTPS no matter what.
-//
-function force_https(req, res, next)
-{
-	//
-	//	1. 	Skip redirection only when on local machine
-	//
-	if(process.env.NODE_ENV != 'local')
-	{
-		//
-		//	1. 	Check what protocol are we using when behind a reverse proxy
-		//
-		if(req.headers['x-forwarded-proto'] !== 'https')
-		{
-			//
-			//	-> 	Redirect the user to the same URL that he requested, but
-			//		with HTTPS instead of HTTP
-			//
-			return res.redirect('https://' + req.hostname + req.url);
-		}
-	}
-
-	//
-	//	2. 	If the protocol is already HTTPS the, we just keep going.
-	//
-	next();
-}
 
 module.exports = app;
