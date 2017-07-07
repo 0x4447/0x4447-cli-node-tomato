@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 		og_image: "https://" + req.hostname + "/images/og/index.png",
 		url: "https://" + req.hostname,
 		partials: {
-			body: '../../index'
+			body: 'index'
 		}
 	});
 
