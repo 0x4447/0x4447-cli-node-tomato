@@ -23,6 +23,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "ncp": "2.0.0"
+    "ncp": "2.0.0",
+    "terminal-kit": "1.11.1"
   }
 }

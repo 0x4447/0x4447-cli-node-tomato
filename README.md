@@ -1,27 +1,39 @@
 # DG Express Generator
 
-I decided to make my own [express-generator](https://expressjs.com/en/starter/generator.html) because I always spend quite some time brining the default ExpressJS template up to speed, by changing things that I didn't like etc. After making `express-generator-dg` for myself I decided to share it with the world.
+This is my own take on the [express-generator](https://expressjs.com/en/starter/generator.html) CLI that comes with ExpressJS. I made this project because I always spend quite some time brining the default ExpressJS template up to speed. Especially when I have to constantly spin up new micro-services.
 
-But if you don't like what you see, you can easily clone this repo, and by changing the content of the `source` folder, you'll have your own `express-generator`.
+A nice feature of my project is the simplicity on how you can customize it yourself. If you have your own style, you can just clone this repo and edit the `source` folder to your liking. But before you do that, check the list of features bellow. So... buckle up, scroll down and enjoy 🙂.
 
-So... buckle up, scroll down and enjoy :)
+# How to go about this
 
-# Key Features
+The `source` folder have 2 templates, one for when you need to build a Website in ExpressJS, and the other is when you need to build an API. In this case the API template is a striped down version of the Website folder, with some minor changes of course. Bellow you can check the list of all the shared features, but not limited to the features that they don't share in common.
+
+# Shared Key Features
 
 - My personal commenting style that I like
-- Simplified and explained the `server` file so from the start you know what each line dose
+- Simplified and explained the `server` file so from the start you know what each line of code dose
 - By default I use clustering
-- By default I use compression when sending requests
-- By default I force HTTPS in production - no excuses
 - Redesigned how errors are handled and displayed
-- By default I use Hogan for the templating - nice and simple
-- Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
-- Basic Open Graph support
-- Twitter Cards support
 - Sentry Support by default set it to report crashes only in production
 - By default I use Knex to talk with the database
 - Code that starts the server is in `workers` folder since it is a worker, and since I always end up with more the the server I have everything in place
 - End everything is organized how I like it :)
+
+## Website
+
+- Redirect to HTTPS in production
+- By default I use compression when sending requests
+- By default I use Hogan for the templating - nice and simple
+- Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
+- Basic Open Graph support
+- Twitter Cards support
+
+## API
+
+- Throw error if there is no HTTPS in production
+- Remove the ETag from the header response
+- Removed the Data entry in the header response
+- Built in check for an API Key
 
 # The whole flow to have the project up and running is this:
 
@@ -35,7 +47,7 @@ Once you have this npm package installed globally, you can use it anywhere. Go t
 $ express-generator-dg NAME_OF_THE_FOLDER
 ```
 
-Then you'll have to go in to the directory you just created and type:
+Select the option that best suit your needs. Then you'll have to go in to the directory you just created and type:
 
 ```
 $ npm install
