@@ -2,10 +2,10 @@
 [![Watch on GitHub][github-watch-badge]][github-watch]
 [![Star on GitHub][github-star-badge]][github-star]
 
-[github-watch-badge]: https://img.shields.io/github/watchers/kentcdodds/express-generator-dg.svg?style=social
+[github-watch-badge]: https://img.shields.io/github/watchers/davidgatti/express-generator-dg.svg?style=social
 [github-watch]: https://github.com/davidgatti/express-generator-dg/watchers
 
-[github-star-badge]: https://img.shields.io/github/stars/kentcdodds/express-generator-dg.svg?style=social
+[github-star-badge]: https://img.shields.io/github/stars/davidgatti/express-generator-dg.svg?style=social
 [github-star]: https://github.com/davidgatti/express-generator-dg/stargazers
 
 [downloads-badge]: https://img.shields.io/npm/dm/express-generator-dg.svg?style=flat-square
