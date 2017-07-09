@@ -1,3 +1,10 @@
+[![downloads][downloads-badge]][npm-stat]
+
+[downloads-badge]: https://img.shields.io/npm/dm/express-generator-dg.svg?style=flat-square
+[npm-stat]: http://npm-stat.com/charts.html?package=express-generator-dg&from=2016-04-01
+
+---
+
 # DG Express Generator
 
 This is my own take on the [express-generator](https://expressjs.com/en/starter/generator.html) CLI that comes with ExpressJS. I made this project because I always spend quite some time brining the default ExpressJS template up to speed. Especially when I have to constantly spin up new micro-services.
