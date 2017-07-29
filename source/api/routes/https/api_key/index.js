@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 	//
 	//	->	Close the connection with a positive status
 	//
-	res.end()
+	res.end();
 
 });
 
