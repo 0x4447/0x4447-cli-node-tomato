@@ -1,3 +1,18 @@
+[![downloads][downloads-badge]][npm-stat]
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Star on GitHub][github-star-badge]][github-star]
+
+[github-watch-badge]: https://img.shields.io/github/watchers/davidgatti/express-generator-dg.svg?style=social
+[github-watch]: https://github.com/davidgatti/express-generator-dg/watchers
+
+[github-star-badge]: https://img.shields.io/github/stars/davidgatti/express-generator-dg.svg?style=social
+[github-star]: https://github.com/davidgatti/express-generator-dg/stargazers
+
+[downloads-badge]: https://img.shields.io/npm/dm/express-generator-dg.svg?style=flat-square
+[npm-stat]: http://npm-stat.com/charts.html?package=express-generator-dg&from=2016-04-01
+
+---
+
 # DG Express Generator
 
 This is my own take on the [express-generator](https://expressjs.com/en/starter/generator.html) CLI that comes with ExpressJS. I made this project because I always spend quite some time brining the default ExpressJS template up to speed. Especially when I have to constantly spin up new micro-services.
@@ -81,7 +96,13 @@ This project was designed to allow you to make it your own - thanks to it simpli
 
 # The End
 
-If you've enjoyed this article/project, please consider giving it a 🌟. Also check out my [GitHub account](https://github.com/davidgatti), where I have other articles and apps that you might find interesting.
+If you've enjoyed this article/project, please consider giving it a 🌟 or donate.
+
+- [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/gattidavid/25)
+- [![Star on GitHub](https://img.shields.io/github/stars/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/How-to-Stream-Movies-using-NodeJS/stargazers)
+- [![Watch on GitHub](https://img.shields.io/github/watchers/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/How-to-Stream-Movies-using-NodeJS/watchers)
+
+Also check out my [GitHub account](https://github.com/davidgatti), where I have other articles and apps that you might find interesting.
 
 ## Where to follow
 
