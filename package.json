@@ -1,7 +1,7 @@
 {
   "name": "express-generator-dg",
   "version": "1.17.2",
-  "description": "A custom ExpressJS Generator",
+  "description": "🙂 My personal default template for a ExpressJS projects",
   "main": "./index",
   "repository": {
     "type": "git",
