@@ -91,8 +91,8 @@ This project was designed to allow you to make it your own - thanks to it simpli
 If you've enjoyed this article/project, please consider giving it a 🌟 or donate.
 
 - [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/gattidavid/25)
-- [![Star on GitHub](https://img.shields.io/github/stars/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/How-to-Stream-Movies-using-NodeJS/stargazers)
-- [![Watch on GitHub](https://img.shields.io/github/watchers/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/How-to-Stream-Movies-using-NodeJS/watchers)
+- [![Star on GitHub](https://img.shields.io/github/stars/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/express-generator-dg/stargazers)
+- [![Watch on GitHub](https://img.shields.io/github/watchers/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/express-generator-dg/watchers)
 
 Also check out my [GitHub account](https://github.com/davidgatti), where I have other articles and apps that you might find interesting.
 
