@@ -28,11 +28,6 @@ let express = require('express');
 let body_parser = require('body-parser');
 
 //
-//	The main Centry module to collect crash reports
-//
-let raven = require('raven');
-
-//
 //	Add basic security headers to each request.
 //
 let helmet = require('helmet');
@@ -61,35 +56,11 @@ let app = express();
 //
 
 //
-//	Load the content of the package.json so we can extract some useful
-//	information about the project.
-//
-let npm = require('./package.json');
-
-//
-//	Log errors to Sentry only when in production.
-//
-//	PRO-TIP: 	use the .dataCallback() method to filter out potential
-//				unwanted errors.
-//
-//	- 	Send the version of the project so we can track which version
-//		caused any problems.
-//
-raven.config(process.env.SENTRY_API_KEY, {
-	release: npm.version
-}).install();
-
-//
 //	Process Cookies from each requests. If a random string is provided it will
 //	be assigned to the req.secret variable, middlewares can use it to sign
 //	cookies or other things.
 //
 app.use(cookie_parser());
-
-//
-//	Set Sentry to start listening to requests
-//
-app.use(raven.requestHandler());
 
 //
 //	Compress the response with Gzip
@@ -187,11 +158,6 @@ app.use(require('./routes/https'));
 // | |____  | | \ \  | | \ \  | |__| | | | \ \   ____) |
 // |______| |_|  \_\ |_|  \_\  \____/  |_|  \_\ |_____/
 //
-
-//
-//	Set Sentry to catch all the potential error
-//
-app.use(raven.errorHandler());
 
 //
 //

@@ -23,10 +23,6 @@
 		"PORT": {
 			"description": "Set the port for development. Will be overwritten by Heroku for example",
 			"value": "3000"
-		},
-		"DNS": {
-			"description": "The URI for Sentry",
-			"value": "https://1337:1337@sentry.io/1337"
 		}
 	}
 }
