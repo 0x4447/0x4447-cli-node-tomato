@@ -11,15 +11,15 @@
     "seed": "npm run knex seed:run"
   },
   "dependencies": {
-    "body-parser": "1.17.1",
-    "express": "4.15.2",
-    "pg": "6.1.5",
-    "knex": "0.12.9",
-    "morgan": "1.8.1"
+    "body-parser": "1.18.2",
+    "express": "4.16.1",
+    "pg": "7.3.0",
+    "knex": "0.13.0",
+    "morgan": "1.9.0"
 
   },
   "devDependencies": {
-    "nodemon": "1.11.0",
+    "nodemon": "1.12.1",
     "foreman": "2.0.0"
   }
 }

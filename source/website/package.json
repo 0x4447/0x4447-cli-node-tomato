@@ -2,9 +2,6 @@
   "name": "",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": "6.10.2"
-  },
   "scripts": {
     "start": "nf start",
     "knex": "./node_modules/.bin/knex",
