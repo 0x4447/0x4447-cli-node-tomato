@@ -88,32 +88,8 @@ This project was designed to allow you to make it your own - thanks to it simpli
 
 # The End
 
-If you've enjoyed this article/project, please consider giving it a 🌟 or donate.
+If you enjoyed this article/project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), where we have additional articles and tools that you might find interesting.
 
-- [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/gattidavid/25)
-- [![Star on GitHub](https://img.shields.io/github/stars/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/express-generator-dg/stargazers)
-- [![Watch on GitHub](https://img.shields.io/github/watchers/davidgatti/express-generator-dg.svg?style=social)](https://github.com/davidgatti/express-generator-dg/watchers)
+# For Hire 👨‍💻
 
-Also check out my [GitHub account](https://github.com/davidgatti), where I have other articles and apps that you might find interesting.
-
-## For Hire 👨‍💻
-
-If you'd like me to help you, I'm available for hire. Contact me at job@gatti.pl.
-
-## Where to follow
-
-You can follow me on social media 🐙😇, at the following locations:
-
-- [GitHub](https://github.com/davidgatti)
-- [Twitter](https://twitter.com/dawidgatti)
-- [Instagram](https://www.instagram.com/gattidavid/)
-
-## More about me
-
-I don’t only live on GitHub, I try to do many things not to get bored 🙃. To learn more about me, you can visit the following links:
-
-- [Podcasts](http://david.gatti.pl/podcasts)
-- [Articles](http://david.gatti.pl/articles)
-- [Technical Articles](http://david.gatti.pl/technical_articles)
-- [Software Projects](http://david.gatti.pl/software_projects)
-- [Hardware Projects](http://david.gatti.pl/hardware_projects)
+If you'd like us to help you with something, please feel free to say hello@0x4447.com, and share what's on your mind. We'll take a look, and try our best to help you.
