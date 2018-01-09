@@ -1,25 +1,25 @@
 {
-  "name": "express-generator-dg",
+  "name": "tomato",
   "version": "1.18.0",
-  "description": "🙂 My personal default template for a ExpressJS projects",
+  "description": "🍅 Our personal default template for a ExpressJS projects",
   "main": "./index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidgatti/express-generator-dg"
+    "url": "https://github.com/0x4447/0x4447-node-cli-tomato"
   },
   "bin": {
-    "express-generator-dg": "./index.js"
+    "tomato": "./index.js"
   },
   "keywords": [
     "express",
     "generator",
-    "david gatti",
+    "0x4447",
     "template"
   ],
   "author": {
-    "name": "David Gatti",
-    "email": "npm@gatti.pl",
-    "url": "https://github.com/davidgatti"
+    "name": "0x4447",
+    "email": "hello@0x4447.com",
+    "url": "https://0x4447.com"
   },
   "license": "MIT",
   "dependencies": {
