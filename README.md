@@ -78,6 +78,10 @@ This tool will override, destroy, kill and crash everything in its path - you've
 
 This project was designed to allow you to make it your own - thanks to it simplicity. Once forked you just have to change the content of the `source` folder, and you have your own easy to use template up and running when you need it.
 
+# Why This Name?
+
+Why not? We had to call it something. And once you see it, you're not going to forget it. 😃
+
 # The End
 
 If you enjoyed this project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), where we have additional articles and tools that you might find interesting.
