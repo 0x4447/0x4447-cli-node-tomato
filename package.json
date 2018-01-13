@@ -1,8 +1,11 @@
 {
-  "name": "tomato",
-  "version": "1.18.0",
+  "name": "@0x4447/tomato",
+  "version": "1.18.1",
   "description": "🍅 Our personal default template for a ExpressJS projects",
   "main": "./index",
+  "scripts": {
+    "test": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/0x4447/0x4447-node-cli-tomato"
@@ -23,6 +26,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "mocha": "4.1.0",
     "ncp": "2.0.0",
     "terminal-kit": "1.11.1"
   }

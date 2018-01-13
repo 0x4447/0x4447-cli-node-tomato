@@ -37,7 +37,7 @@ The `source` folder have 2 templates, one for when you need to build a Website i
 # The whole flow to have the project up and running is this:
 
 ```
-$ npm install tomato -g
+$ sudo npm -g install @0x4447/tomato
 ```
 
 Once you have this npm package installed globally, you can use it anywhere. Go to a folder where you want to create a new project and:
