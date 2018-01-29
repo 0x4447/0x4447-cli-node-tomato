@@ -4,6 +4,12 @@ This is our own take on the [express-generator](https://expressjs.com/en/starter
 
 A nice feature of this project is the simplicity on how you can customize it yourself. If you have your own style, you can just clone this repo and edit the `source` folder to your liking. But before you do that, check the list of features bellow. So... buckle up, scroll down and enjoy 🙂.
 
+# How to Install
+
+```
+sudo npm install -g @0x4447/potato
+```
+
 # How to go about this
 
 The `source` folder have 2 templates, one for when you need to build a Website in ExpressJS, and the other is when you need to build an API. In this case the API template is a striped down version of the Website folder, with some minor changes of course. Bellow you can check the list of all the shared features, but not limited to the features that they don't share in common.

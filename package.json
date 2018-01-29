@@ -1,6 +1,6 @@
 {
   "name": "@0x4447/tomato",
-  "version": "1.18.2",
+  "version": "1.18.3",
   "description": "🍅 Our personal default template for a ExpressJS projects",
   "main": "./index",
   "scripts": {
