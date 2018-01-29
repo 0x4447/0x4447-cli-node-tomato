@@ -7,7 +7,7 @@ A nice feature of this project is the simplicity on how you can customize it you
 # How to Install
 
 ```
-sudo npm install -g @0x4447/potato
+sudo npm install -g @0x4447/tomato
 ```
 
 # Usage
