@@ -90,7 +90,7 @@ Why not? We had to call it something. And once you see it, you're not going to f
 
 # The End
 
-If you enjoyed this project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), where we have additional articles and tools that you might find interesting.
+If you enjoyed this article/project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), where we have additional articles and tools that you might find interesting.
 
 # For Hire 👨‍💻 👩‍💻
 
