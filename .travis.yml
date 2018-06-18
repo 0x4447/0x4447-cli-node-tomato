@@ -12,5 +12,5 @@ deploy:
   on:
     tags: false
     branch: master
-    repo: 0x4447/0x4447-node-cli-tomato
+    repo: 0x4447/0x4447-cli-node-tomato
     node_js: '8'
