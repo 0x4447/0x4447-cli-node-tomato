@@ -10,7 +10,13 @@ A nice feature of this project is the simplicity on how you can customize it you
 sudo npm install -g @0x4447/tomato
 ```
 
-# Usage
+# How to Use
+
+```
+tomato
+```
+
+# What to expect
 
 The `source` folder have 2 templates, one for when you need to build a Website in ExpressJS, and the other is when you need to build an API. In this case the API template is a striped down version of the Website folder, with some minor changes of course. Bellow you can check the list of all the shared features, but not limited to the features that they don't share in common.
 
@@ -94,4 +100,4 @@ If you enjoyed this article/project, please consider giving it a 🌟. And check
 
 # For Hire 👨‍💻 👩‍💻
 
-If you'd like us to help you with something, please feel free to say hello@0x4447.com, and share what's on your mind. We'll take a look, and try our best to help you. Or visit our website at: [0x4447.com](https://0x4447.com).
+If you'd like us to help you with something, please feel free to say hello@0x4447.email, and share what's on your mind. We'll take a look, and try our best to help you. Or visit our website at: [0x4447.com](https://0x4447.com).
