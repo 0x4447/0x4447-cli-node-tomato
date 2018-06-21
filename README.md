@@ -7,16 +7,16 @@ A nice feature of this project is the simplicity on how you can customize it you
 # How to Install
 
 ```
-sudo npm install -g @0x4447/tomato
+] sudo npm install -g @0x4447/tomato
 ```
 
 # How to Use
 
 ```
-tomato
+] tomato NAME_OF_THE_FOLDER
 ```
 
-# What to expect
+# What to Expect
 
 The `source` folder have 2 templates, one for when you need to build a Website in ExpressJS, and the other is when you need to build an API. In this case the API template is a striped down version of the Website folder, with some minor changes of course. Bellow you can check the list of all the shared features, but not limited to the features that they don't share in common.
 
@@ -49,37 +49,37 @@ The `source` folder have 2 templates, one for when you need to build a Website i
 # The whole flow to have the project up and running is this:
 
 ```
-$ sudo npm -g install @0x4447/tomato
+] sudo npm -g install @0x4447/tomato
 ```
 
 Once you have this npm package installed globally, you can use it anywhere. Go to a folder where you want to create a new project and:
 
 ```
-$ tomato NAME_OF_THE_FOLDER
+] tomato NAME_OF_THE_FOLDER
 ```
 
 Select the option that best suit your needs. Then you'll have to go in to the directory you just created and type:
 
 ```
-$ npm install
+] npm install
 ```
 
 Then you'll need to create a `.env` file to load your environment variables in to memory thanks to `foreman`, or you can also just install another tool that I made called [env-auto](https://www.npmjs.com/package/env-auto) like so:
 
 ```
-$ npm install cucumber -g
+] npm install cucumber -g
 ```
 
 and then in the root folder of your project type:
 
 ```
-$ cucumber
+] cucumber
 ```
 
 to get the `.env` file automatically created from the `app.json` file. Last thing would be to start the whole thing with:
 
 ```
-$ npm start
+] npm start
 ```
 
 # WARNING
@@ -90,14 +90,10 @@ This tool will override, destroy, kill and crash everything in its path - you've
 
 This project was designed to allow you to make it your own - thanks to it simplicity. Once forked you just have to change the content of the `source` folder, and you have your own easy to use template up and running when you need it.
 
-# Why This Name?
-
-Why not? We had to call it something. And once you see it, you're not going to forget it. 😃
-
 # The End
 
 If you enjoyed this article/project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), where we have additional articles and tools that you might find interesting.
 
 # For Hire 👨‍💻 👩‍💻
 
-If you'd like us to help you with something, please feel free to say hello@0x4447.email, and share what's on your mind. We'll take a look, and try our best to help you. Or visit our website at: [0x4447.com](https://0x4447.com).
+If you'd like us to help you with something, please feel free to say [hello@0x4447.email](hello@0x4447.email), and share what's on your mind. We'll take a look, and try our best to help you. Or visit our website at: [0x4447.com](https://0x4447.com).
