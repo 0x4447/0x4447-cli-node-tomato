@@ -2,47 +2,100 @@
 
 let os = require('os');
 let fs = require('fs');
+let npm = require('./package.json');
 let ncp = require('ncp').ncp;
 let path = require('path');
 let term = require('terminal-kit').terminal;
+let program = require('commander');
+
+//   _____   ______   _______   _______   _____   _   _    _____    _____
+//  / ____| |  ____| |__   __| |__   __| |_   _| | \ | |  / ____|  / ____|
+// | (___   | |__       | |       | |      | |   |  \| | | |  __  | (___
+//  \___ \  |  __|      | |       | |      | |   | . ` | | | |_ |  \___ \
+//  ____) | | |____     | |       | |     _| |_  | |\  | | |__| |  ____) |
+// |_____/  |______|    |_|       |_|    |_____| |_| \_|  \_____| |_____/
+//
 
 //
-//	1.	Get the full path of the app being executed
+//	The CLI options for this app.
 //
-let app_path = process.argv[1].split('/');
+program
+	.version(npm.version)
+	.option('-d, --destination [type]', 'path to the destination folder')
+	.parse(process.argv);
 
 //
-//	2. The first provided argument by the user is the destination
+//	React when the user needs help
 //
-let destination = process.argv[2];
+program.on('--help', function() {
+
+	//
+	//	Just add an empty line at the end of the help to make the text more clear
+	//	to the user
+	//
+	console.log("");
+
+});
 
 //
-//	3. Make sure the destination was provided by the user
+//	Listen for key preses
 //
-if(!destination)
+term.on('key', function(name, matches, data ) {
+
+	//
+	//	1.	If we detect CTR+C we kill the app
+	//
+	if(name === 'CTRL_C' )
+	{
+		//
+		//	1. 	Lets make a nice user experience and clean the terminal window
+		//		before closing the app
+		//
+		term.clear();
+
+		//
+		//	->	Kill the app
+		//
+		process.exit();
+	}
+
+});
+
+//
+//	Pass the user input to the commander module
+//
+program.parse(process.argv);
+
+//
+//	Check if the user provided the dir source where to copy the file from
+//
+if(!program.destination)
 {
-	//
-	//	1. Give the user an example how to use the app.
-	//
-	term.brightWhite("Missing argument!\n");
-	term.brightWhite('\n');
-	term.yellow("\tExample: express-generator-dg DESTINATION_FOLDER \n");
-	term.brightWhite('\n');
-
-	//
-	//	-> Exit the app if error.
-	//
-	process.exit(1);
+	console.log('Missing destination');
+	process.exit(0);
 }
 
 //
-//	4.	Tell the user what to do.
+//	Get the full path of the app being executed
+//
+let app_path = process.argv[1].split('/');
+
+//	 __  __              _____   _   _
+//	|  \/  |     /\     |_   _| | \ | |
+//	| \  / |    /  \      | |   |  \| |
+//	| |\/| |   / /\ \     | |   | . ` |
+//	| |  | |  / ____ \   _| |_  | |\  |
+//	|_|  |_| /_/    \_\ |_____| |_| \_|
+//
+
+//
+//	1.	Tell the user what to do.
 //
 term.yellow('\n');
 term.yellow('Which template should I deploy?\n');
 
 //
-//	5.	A list of all the templates that we support
+//	2.	A list of all the templates that we support
 //
 let items = [
 	'1. Website',
@@ -50,12 +103,12 @@ let items = [
 ];
 
 //
-//	6.	The real names of the folders inside the Source folder
+//	3.	The real names of the folders inside the Source folder
 //
 let folder_names = ['website', 'api'];
 
 //
-//	7.	React to what the user selected
+//	4.	React to what the user selected
 //
 term.singleColumnMenu(items, function(error, response) {
 
@@ -82,7 +135,7 @@ term.singleColumnMenu(items, function(error, response) {
 	//
 	//	4.	Make the path to the destination location
 	//
-	let target = process.cwd() + "/" + destination
+	let target = process.cwd() + "/" + program.destination
 
 	//
 	//	5.	Start copying
