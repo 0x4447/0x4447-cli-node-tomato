@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
-let os = require('os');
 let fs = require('fs');
 let npm = require('./package.json');
 let ncp = require('ncp').ncp;
-let path = require('path');
 let term = require('terminal-kit').terminal;
 let program = require('commander');
 
@@ -30,8 +28,8 @@ program
 program.on('--help', function() {
 
 	//
-	//	Just add an empty line at the end of the help to make the text more clear
-	//	to the user
+	//	Just add an empty line at the end of the help to make the text more
+	//	clear to the user
 	//
 	console.log("");
 
@@ -78,7 +76,7 @@ if(!program.destination)
 //
 //	Get the full path of the app being executed
 //
-let app_path = process.argv[1].split('/');
+let app_location = get_source_path(process.argv[1]);
 
 //	 __  __              _____   _   _
 //	|  \/  |     /\     |_   _| | \ | |
@@ -122,23 +120,15 @@ term.singleColumnMenu(items, function(error, response) {
 	//
 	// 		https://docs.npmjs.com/files/folders
 	//
-	let source = "/usr/local/lib/node_modules/express-generator-dg/source/" + seelcted_folder;
+	let source = app_location + "/source/" + seelcted_folder;
 
 	//
-	//	3.	We change the path accordingly to the system the app is running
+	//	3.	Make the path to the destination location
 	//
-	if(os.platform() == 'linux')
-	{
-		source = "/usr/lib/node_modules/express-generator-dg/source/" + seelcted_folder;
-	}
+	let target = process.cwd() + "/" + program.destination;
 
 	//
-	//	4.	Make the path to the destination location
-	//
-	let target = process.cwd() + "/" + program.destination
-
-	//
-	//	5.	Start copying
+	//	4.	Start copying
 	//
 	ncp(source, target, function(error) {
 
@@ -177,3 +167,58 @@ term.singleColumnMenu(items, function(error, response) {
 	});
 
 });
+
+//	 ______  _    _  _   _   _____  _______  _____  ____   _   _   _____
+//	|  ____|| |  | || \ | | / ____||__   __||_   _|/ __ \ | \ | | / ____|
+//	| |__   | |  | ||  \| || |        | |     | | | |  | ||  \| || (___
+//	|  __|  | |  | || . ` || |        | |     | | | |  | || . ` | \___ \
+//	| |     | |__| || |\  || |____    | |    _| |_| |__| || |\  | ____) |
+//	|_|      \____/ |_| \_| \_____|   |_|   |_____|\____/ |_| \_||_____/
+//
+
+//
+//	Create the source path where the module is located so we can get to the
+//	`source` folder and copy its content to the destination.
+//
+//	We need to do this since different environments save the module in
+//	different places. Clean npm will save it in one place, nvm will save it
+//	in another one.
+//
+function get_source_path(path)
+{
+	//
+	//	1.	Split the string in to an array
+	//
+	let path_array = path.split('/');
+
+	//
+	//	2.	Check if we are dealing with nvm or not
+	//
+	let nvm = path_array.includes('.nvm') || false;
+
+	//
+	//	3.	Remove the last two indexes from the array since we want to get
+	//		to where the source of the module is located ad not where the
+	//		symlink to the binary is.
+	//
+	path_array.splice(-2);
+
+	//
+	//	3.	Add the array the folders names that points to the source of
+	//		the module.
+	//
+	path_array.push('lib');
+	path_array.push('node_modules');
+	path_array.push('@0x4447');
+	path_array.push('tomato');
+
+	//
+	//	4.	Convert the array in to a path string.
+	//
+	let new_path = path_array.join('/');
+
+	//
+	//	->	Return the result
+	//
+	return new_path;
+}
