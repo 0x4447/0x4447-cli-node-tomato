@@ -19,8 +19,7 @@ let program = require('commander');
 //
 program
 	.version(npm.version)
-	.option('-d, --destination [type]', 'path to the destination folder')
-	.parse(process.argv);
+	.option('-d, --destination [type]', 'path to the destination folder');
 
 //
 //	React when the user needs help
@@ -34,6 +33,11 @@ program.on('--help', function() {
 	console.log("");
 
 });
+
+//
+//	Pass the user input to the commander module
+//
+program.parse(process.argv);
 
 //
 //	Listen for key preses
@@ -58,11 +62,6 @@ term.on('key', function(name, matches, data ) {
 	}
 
 });
-
-//
-//	Pass the user input to the commander module
-//
-program.parse(process.argv);
 
 //
 //	Check if the user provided the dir source where to copy the file from
