@@ -2,7 +2,7 @@
 
 Tomato is our take on the [express-generator](https://expressjs.com/en/starter/generator.html) CLI that comes with ExpressJS. We created the project because we were spending too much time on bringing the default ExpressJS template up to speed, especially when we had to constantly spin up new micro-services.
 
-One nice feature of this project is that it's simple for the user to customize. If you have your own style, just clone this repo and edit the `source` folder to suit your needs. But before you do that, check out the following list of features:
+One nice feature of this project is that it's simple for you to customize. If you have your own style, just clone this repo and edit the `source` folder to suit your needs.
 
 # How to install
 
@@ -13,7 +13,7 @@ One nice feature of this project is that it's simple for the user to customize. 
 # How to use
 
 ```
-] tomato NAME_OF_THE_FOLDER
+] tomato -d PATH_TO_FOLDER
 ```
 
 # Where to get help
@@ -29,7 +29,7 @@ There are two templates in the `source` folder, one for building a Website in Ex
 # Shared key features
 
 - Our preferred personal commenting style
-- A simplified and thoroughly explained `server` file that immediately demonstrates what each line of code does 
+- A simplified and thoroughly explained `server` file that immediately demonstrates what each line of code does
 - Clustering used by default
 - Redesigned handling and display of errors
 - Knex used by default to talk with the database
@@ -61,7 +61,7 @@ There are two templates in the `source` folder, one for building a Website in Ex
 Once you have this npm package installed globally, you can use it anywhere. Go to a folder in which you'd like to create a new project, then:
 
 ```
-] tomato NAME_OF_THE_FOLDER
+] tomato -d PATH_TO_FOLDER
 ```
 
 Select the option that best suits your needs, then go into the directory you just created and type:
@@ -70,7 +70,7 @@ Select the option that best suits your needs, then go into the directory you jus
 ] npm install
 ```
 
-Next, create a `.env` file to load your environment variables into memory - thanks to `foreman`. Or you can install another of my tools, [env-auto](https://www.npmjs.com/package/env-auto) in this manner:
+Next, create a `.env` file to load your environment variables into memory - thanks to `foreman`. Or you can install another of our tool, [env-auto](https://www.npmjs.com/package/env-auto) in this manner:
 
 ```
 ] npm install cucumber -g
@@ -79,7 +79,7 @@ Next, create a `.env` file to load your environment variables into memory - than
 In your project's root folder, type:
 
 ```
-] cucumber
+] cucumber -s PATH_TO_FOLDER
 ```
 
 This automatically creates the `.env` file created from the `app.json` file. The last step is to start the whole thing with:
