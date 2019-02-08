@@ -1,88 +1,88 @@
 # 🍅 Tomato
 
-This is our own take on the [express-generator](https://expressjs.com/en/starter/generator.html) CLI that comes with ExpressJS. We made this project because we always spend quite some time brining the default ExpressJS template up to speed. Especially when we have to constantly spin up new micro-services.
+Tomato is our take on the [express-generator](https://expressjs.com/en/starter/generator.html) CLI that comes with ExpressJS. We created the project because we were spending too much time on bringing the default ExpressJS template up to speed, especially when we had to constantly spin up new micro-services.
 
-A nice feature of this project is the simplicity on how you can customize it yourself. If you have your own style, you can just clone this repo and edit the `source` folder to your liking. But before you do that, check the list of features bellow. So... buckle up, scroll down and enjoy 🙂.
+One nice feature of this project is that it's simple for you to customize. If you have your own style, just clone this repo and edit the `source` folder to suit your needs.
 
-# How to Install
+# How to install
 
 ```
 ] sudo npm install -g @0x4447/tomato
 ```
 
-# How to Use
+# How to use
 
 ```
-] tomato NAME_OF_THE_FOLDER
+] tomato -d PATH_TO_FOLDER
 ```
 
-# Where to get Help
+# Where to get help
 
 ```
 ] tomato -h
 ```
 
-# What to Expect
+# What to expect
 
-The `source` folder have 2 templates, one for when you need to build a Website in ExpressJS, and the other is when you need to build an API. In this case the API template is a striped down version of the Website folder, with some minor changes of course. Bellow you can check the list of all the shared features, but not limited to the features that they don't share in common.
+There are two templates in the `source` folder, one for building a Website in ExpressJS, and another for building an API. In this case, the API template is a stripped-down version of the Website folder - with some minor changes. Below you'll find the list of all the shared features, but not limited to features they don't share in common.
 
-# Shared Key Features
+# Shared key features
 
-- Our personal commenting style that we like
-- Simplified and explained the `server` file so from the start you know what each line of code dose
-- By default we use clustering
-- Redesigned how errors are handled and displayed
-- By default we use Knex to talk with the database
-- Code that starts the server is in `workers` folder since it is a worker, and since we always end up with more the the server
-- End everything is organized how we like it :)
+- Our preferred personal commenting style
+- A simplified and thoroughly explained `server` file that immediately demonstrates what each line of code does
+- Clustering used by default
+- Redesigned handling and display of errors
+- Knex used by default to talk with the database
+- Code to start the server in `workers` folder since it's a worker and we always end up with more than the server
+- Everything organized in the way we like it :)
 
 ## Website
 
 - Redirect to HTTPS in production
-- By default we use compression when sending requests
-- By default we use Hogan for the templating - nice and simple
-- Favicon done right. Make your own five icon using [Real Favicon Generator](https://realfavicongenerator.net)
+- Compression used by default when sending requests
+- Hogan used by default for templating (nice and simple)
+- Favicon done right: Make five icons with [Real Favicon Generator](https://realfavicongenerator.net)
 - Basic Open Graph support
 - Twitter Cards support
 
 ## API
 
-- Throw error if there is no HTTPS in production
-- Remove the ETag from the header response
-- Removed the Data entry in the header response
-- Built in check for an API Key
+- Throws error if there is no HTTPS in production
+- Removes the ETag from the header response
+- Removes the Data entry in the header response
+- Built-in check for an API Key
 
-# The whole flow to have the project up and running is this:
+# The entire flow to get the project up and running follows:
 
 ```
 ] sudo npm -g install @0x4447/tomato
 ```
 
-Once you have this npm package installed globally, you can use it anywhere. Go to a folder where you want to create a new project and:
+Once you have this npm package installed globally, you can use it anywhere. Go to a folder in which you'd like to create a new project, then:
 
 ```
-] tomato NAME_OF_THE_FOLDER
+] tomato -d PATH_TO_FOLDER
 ```
 
-Select the option that best suit your needs. Then you'll have to go in to the directory you just created and type:
+Select the option that best suits your needs, then go into the directory you just created and type:
 
 ```
 ] npm install
 ```
 
-Then you'll need to create a `.env` file to load your environment variables in to memory thanks to `foreman`, or you can also just install another tool that I made called [env-auto](https://www.npmjs.com/package/env-auto) like so:
+Next, create a `.env` file to load your environment variables into memory - thanks to `foreman`. Or you can install another of our tool, [env-auto](https://www.npmjs.com/package/env-auto) in this manner:
 
 ```
 ] npm install cucumber -g
 ```
 
-and then in the root folder of your project type:
+In your project's root folder, type:
 
 ```
-] cucumber
+] cucumber -s PATH_TO_FOLDER
 ```
 
-to get the `.env` file automatically created from the `app.json` file. Last thing would be to start the whole thing with:
+This automatically creates the `.env` file created from the `app.json` file. The last step is to start the whole thing with:
 
 ```
 ] npm start
@@ -90,16 +90,17 @@ to get the `.env` file automatically created from the `app.json` file. Last thin
 
 # WARNING
 
-This tool will override, destroy, kill and crash everything in its path - you've been warned ;)
+This tool will override, destroy, kill, and crash everything in its path. You've been warned! ;)
 
-# Fork It
+# Fork it
 
-This project was designed to allow you to make it your own - thanks to it simplicity. Once forked you just have to change the content of the `source` folder, and you have your own easy to use template up and running when you need it.
+We designed this project in such a simple way that you can make it your own. Once forked, just change the content of the `source` folder, and you'll have your own easy-to-use template up and running whenever you need it.
 
 # The End
 
-If you enjoyed this project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), where we have additional resources that you might find useful or interesting.
+If you enjoyed this project, please consider giving it a 🌟. And check out our [0x4447 GitHub account](https://github.com/0x4447), which contains additional resources you might find useful or interesting.
 
-# For Hire 👨‍💻 👩‍💻
+## Sponsor 🎊
 
-If you'd like us to help you with something, please feel free to say [hello@0x4447.email](mailto:hello@0x4447.email?Subject=Hello%20From%20Repo&Body=Hi%2C%0A%0AMy%20name%20is%20NAME%2C%20and%20I%27d%20like%20to%20get%20in%20touch%20with%20someone%20at%200x4447.%0A%0AI%27d%20like%20to%20discuss%20the%20following%20topics%3A%0A%0A-%20LIST_OF_TOPICS_TO_DISCUSS%0A%0ASome%20useful%20information%3A%0A%0A-%20My%20full%20name%20is%3A%20FIRST_NAME%20LAST_NAME%0A-%20My%20time%20zone%20is%3A%20TIME_ZONE%0A-%20My%20working%20hours%20are%20from%3A%20TIME%20till%20TIME%0A-%20My%20company%20name%20is%3A%20COMPANY%20NAME%0A-%20My%20company%20website%20is%3A%20https%3A%2F%2F%0A%0ABest%20regards.), and share what's on your mind. We'll take a look, and try our best to help you. Or visit our website at: [0x4447.com](https://0x4447.com).
+This project is brought to you by 0x4447 LLC, a software company specializing in building custom solutions on top of AWS. Follow this link to learn more: https://0x4447.com. Alternatively, send an email to [hello@0x4447.email](mailto:hello@0x4447.email?Subject=Hello%20From%20Repo&Body=Hi%2C%0A%0AMy%20name%20is%20NAME%2C%20and%20I%27d%20like%20to%20get%20in%20touch%20with%20someone%20at%200x4447.%0A%0AI%27d%20like%20to%20discuss%20the%20following%20topics%3A%0A%0A-%20LIST_OF_TOPICS_TO_DISCUSS%0A%0ASome%20useful%20information%3A%0A%0A-%20My%20full%20name%20is%3A%20FIRST_NAME%20LAST_NAME%0A-%20My%20time%20zone%20is%3A%20TIME_ZONE%0A-%20My%20working%20hours%20are%20from%3A%20TIME%20till%20TIME%0A-%20My%20company%20name%20is%3A%20COMPANY%20NAME%0A-%20My%20company%20website%20is%3A%20https%3A%2F%2F%0A%0ABest%20regards.).
+
